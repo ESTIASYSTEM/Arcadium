@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# IDE
+*.tags1
+
+*.tags
+
