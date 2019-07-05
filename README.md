@@ -7,6 +7,13 @@ Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier corres
 
 ## Arduino-Coin-Acceptor
 Code pour la carte Arduino gérant le monnayeur.
+Lien utiles:
+- [Interfacing DG600F Coin Acceptor to Arduino](https://bigdanzblog.wordpress.com/2015/01/12/interfacing-dg600f-coin-acceptor-to-arduino/)
+- [arduino-coin-acceptor
+](https://github.com/hxlnt/arduino-coin-acceptor)
+- [DG600F Code examples](https://github.com/vvzen/coin-acceptor)
+- [Make Money With Arduino](https://www.instructables.com/id/Make-Money-with-Arduino/)
+
 
 ## Arduino-Marquee-light
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.

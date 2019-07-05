@@ -2,11 +2,12 @@
 //
 //
 
+
 #define COIN_PIN XXX
 #define LED_PIN XXX
 #define INHIBIT_PIN XXX
 
-enum coin_mode 
+enum coin_mode
 {
   acceptCoins = 0,
   refuseCoins = 1
@@ -23,10 +24,10 @@ unsigned int coins_stored;
 
 void setup()
 {
-  
+
   Serial.begin(9600);
 
-  // Depart 
+  // Depart
   coin_mode = refuse_coins;
 
 }
@@ -40,13 +41,13 @@ void loop()
   if(PC_order != "")
   {
     PCOrder = tolower(PCOrder);
-    
+
     if(PCOrder == 'r') // mode refus
     {
       coin_mode = refuse_coins;
     }
   }
-  
+
   switch(coin_mode)
   {
     case(acceptCoins):
@@ -66,6 +67,5 @@ void loop()
   delay(500);
 
 
-  
-}
 
+}
