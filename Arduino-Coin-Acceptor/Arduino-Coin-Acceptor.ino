@@ -1,12 +1,12 @@
 //
 //
 //
-
+#include <Arduino.h>
 
 #define COIN_PIN XXX
 #define LED_PIN XXX
 #define INHIBIT_PIN XXX
-
+//TODO
 enum coin_mode
 {
   acceptCoins = 0,
