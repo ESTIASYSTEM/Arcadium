@@ -14,6 +14,17 @@ Lien utiles:
 - [DG600F Code examples](https://github.com/vvzen/coin-acceptor)
 - [Make Money With Arduino](https://www.instructables.com/id/Make-Money-with-Arduino/)
 
+### Configuration du monnayeur
+Chaque pièce est associé à un numéro dans le monnayeur
+- C1 : 2€       Valeur monnayeur    40
+- C2 : 1€       Valeur monnayeur    20
+- C3 : 0,50€    Valeur monnayeur    10
+- C4 : 0,20€    Valeur monnayeur    4
+- C5 : 0,10€    Valeur monnayeur    2
+- C6 : 0,05€    Valeur monnayeur    1
+
+Valeur € = valeur monnayeur x 5
+
 
 ## Arduino-Marquee-light
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
