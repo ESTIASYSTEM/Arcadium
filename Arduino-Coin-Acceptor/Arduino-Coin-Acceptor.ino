@@ -1,71 +1,76 @@
-//
-//
-//
+//https://bigdanzblog.wordpress.com/2015/01/12/interfacing-dg600f-coin-acceptor-to-arduino/
+/**@author Adri1G
+ * 
+ * This program read with RS232 the incoming value from the coin acceptor and send 
+ * Pin map:
+ * 2 (D2) Arduino on coin acceptor Signal
+ * 
+ * Switch configuration coin acceptor :
+ * OFF: SW1, SW2, SW4
+ * ON: SW3
+ */
+
 #include <Arduino.h>
+#include <SoftwareSerial.h>
 
-#define COIN_PIN XXX
-#define LED_PIN XXX
-#define INHIBIT_PIN XXX
-//TODO
-enum coin_mode
-{
-  acceptCoins = 0,
-  refuseCoins = 1
-};
+#define RATIO_CURRENCY_COIN_ACCEPTOR_SIGNAL   5
+#define SENDING_INTERVAL                      250
+#define PART_PRICE                            10    // € value 100
+#define LED_PIN                               13
 
-// variable
+SoftwareSerial mySerial(2, 3);  // RX, TX
 
-volatile coin_mode;
+int coin_value = 0;             //1€ = 100 int, to avoid double imprecision by design https://stackoverflow.com/questions/23137719/incorrect-rounding-of-currency-double-values
+unsigned long previous_Millis = 0;
+unsigned long current_Millis;
+bool          high_state_sending = false;
 
-bool acceptCoin = false;
-char PCOrder;
 
-unsigned int coins_stored;
-
-void setup()
-{
-
+void setup() {
+  // Open serial communications and wait for port to open:
   Serial.begin(9600);
+  Serial.println("Coin Acceptor Ready!");
 
-  // Depart
-  coin_mode = refuse_coins;
+  // set the data rate for the SoftwareSerial port
+  mySerial.begin(4800);
+
+  pinMode(4, OUTPUT);   //use to send credit to arcade cabinet
+  digitalWrite(4, LOW);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, HIGH);
+
 
 }
 
-void loop()
-{
+void loop() {
+  //TODO pass receved value coin to interrup
 
-  if(Serial.available)
-    PC_order = Serial.read();
+  // any input coming from coin acceptor?
+  if (mySerial.available()) {
+    // read input, which is a 1 byte integer
+    coin_value += mySerial.read()*RATIO_CURRENCY_COIN_ACCEPTOR_SIGNAL; //ratio to adapt the value send by the coin acceptor
+    Serial.print("test");
+    Serial.print("Monnaie reçue ");// FIXME past two time by this function
+    Serial.println(coin_value);
+  }
 
-  if(PC_order != "")
-  {
-    PCOrder = tolower(PCOrder);
-
-    if(PCOrder == 'r') // mode refus
+    if (coin_value > 0)
     {
-      coin_mode = refuse_coins;
+      current_Millis = millis();
+      //if there is some money  and state is low, send a rising edge
+      if((current_Millis - previous_Millis >= SENDING_INTERVAL ) && !high_state_sending){
+        coin_value -= PART_PRICE;
+        digitalWrite(4,HIGH);
+        digitalWrite(LED_PIN, HIGH);
+        high_state_sending = true;
+        previous_Millis = current_Millis;
+      }
+    //else send a falling edge
+    if((current_Millis - previous_Millis >= SENDING_INTERVAL ) && high_state_sending){
+      digitalWrite(4,LOW);
+      digitalWrite(LED_PIN,LOW);
+      high_state_sending = false;
+      previous_Millis = current_Millis;
     }
   }
-
-  switch(coin_mode)
-  {
-    case(acceptCoins):
-
-
-    break;
-
-    case(refuseCoins):
-
-    break;
-
-    default:
-
-    break;
-  }
-
-  delay(500);
-
-
-
 }

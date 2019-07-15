@@ -28,6 +28,8 @@ Valeur € = valeur monnayeur x 5
 
 ## Arduino-Marquee-light
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
+[Réutilisation d'un code d'exemple de ce dépot](https://github.com/Makuna/NeoPixelBus)
+Il faut installer la bibliothéque dans l'IDE Arduino
 
 ## Arduino-rear-LED
 Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contient :
