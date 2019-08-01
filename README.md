@@ -5,6 +5,9 @@ Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier corres
 [Lien vers l'article sur la borne](http://estiasystem.estia.fr/archives/2317)
 ![Une fine équipe!](borne.jpg)
 
+## Emulateur LaunchBox BigBox
+[Utilisation de LaunchBox BigBox](https://www.launchbox-app.com/big-box)
+
 ## Arduino-Coin-Acceptor
 Code pour la carte Arduino gérant le monnayeur.
 Lien utiles:
@@ -13,6 +16,10 @@ Lien utiles:
 ](https://github.com/hxlnt/arduino-coin-acceptor)
 - [DG600F Code examples](https://github.com/vvzen/coin-acceptor)
 - [Make Money With Arduino](https://www.instructables.com/id/Make-Money-with-Arduino/)
+
+TODO
+- faire la VeroBoard et les supports
+- connecter au bouton du PC
 
 ### Configuration du monnayeur
 Chaque pièce est associé à un numéro dans le monnayeur
@@ -36,4 +43,4 @@ Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contien
 
 - un PWM logiciel pour avoir 3 sorties PWM simultanées sur une carte Nano (contourner la limitation matérielle)
 - une gestion des LEDs en mode RGB
-- une correction du gamma (TODO peut être enlevé)
+- une correction du gamma (TODO fonction pouvant être supprimé)
