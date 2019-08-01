@@ -15,9 +15,9 @@
 #include <SoftwareSerial.h>
 
 #define RATIO_CURRENCY_COIN_ACCEPTOR_SIGNAL 5 // ratio to convert value from coin acceptor in €
-#define SENDING_INTERVAL                    250 //send a signal each intervale
-#define GAME_PRICE                          10  // ratio: € x 100, exemple: one game at 0,05€ is GAME_PRICE = 10
-#define LED_PIN                             13
+#define SENDING_INTERVAL 250                  //send a signal each intervale
+#define GAME_PRICE 10                         // ratio: € x 100, exemple: one game at 0,05€ is GAME_PRICE = 10
+#define LED_PIN 13
 
 SoftwareSerial mySerial(2, 3); // RX, TX
 
@@ -63,21 +63,24 @@ void loop()
   {
     current_Millis = millis();
     //if there is some money  and state is low, send a rising edge
-    if ((current_Millis - previous_Millis >= SENDING_INTERVAL) && !high_state_sending)
+    if (current_Millis - previous_Millis >= SENDING_INTERVAL)
     {
-      coin_value -= GAME_PRICE;
-      digitalWrite(4, HIGH);
-      digitalWrite(LED_PIN, HIGH);
-      high_state_sending = true;
-      previous_Millis = current_Millis;
-    }
-    //else send a falling edge
-    if ((current_Millis - previous_Millis >= SENDING_INTERVAL) && high_state_sending)
-    {
-      digitalWrite(4, LOW);
-      digitalWrite(LED_PIN, LOW);
-      high_state_sending = false;
-      previous_Millis = current_Millis;
+      if (!high_state_sending)
+      {
+        coin_value -= GAME_PRICE;
+        digitalWrite(4, HIGH);
+        digitalWrite(LED_PIN, HIGH);
+        high_state_sending = true;
+        previous_Millis = current_Millis;
+      }
+      //else send a falling edge
+      else
+      {
+        digitalWrite(4, LOW);
+        digitalWrite(LED_PIN, LOW);
+        high_state_sending = false;
+        previous_Millis = current_Millis;
+      }
     }
   }
 }
