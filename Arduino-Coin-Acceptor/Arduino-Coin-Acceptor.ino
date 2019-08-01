@@ -25,6 +25,7 @@
  * GND
  * SIGNAL (to Arduino)
  * DC12V
+ * PIN_PC: 2 to connect with the PC via button
  * 
  * Coin acceptor Switch configuration :
  * SW1: OFF
@@ -88,6 +89,7 @@ void loop()
     {
       Serial.println(high_state_sending);   //to count impulse send
       //if there is some money and state is high, send a falling edge
+
       if (high_state_sending)
       {
         coin_value -= GAME_PRICE;

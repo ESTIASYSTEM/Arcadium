@@ -19,7 +19,15 @@ Lien utiles:
 
 TODO
 - faire la VeroBoard et les supports
-- connecter au bouton du PC
+- se connecter au bouton du PC
+
+
+[Sur les boutons de la borne](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
+venir faire passer l'Arduino pour un bouton avec un transistor NPN
+Bouton non appuyé: fil jaune au potentiel 5V (même que rouge)
+Bouton appuyé: fil jaune au potentiel GND
+-> fermeture du circuit
+
 
 ### Configuration du monnayeur
 Chaque pièce est associé à un numéro dans le monnayeur
@@ -31,6 +39,7 @@ Chaque pièce est associé à un numéro dans le monnayeur
 - C6 : 0,05€    Valeur monnayeur    1
 
 Valeur € = valeur monnayeur x 5
+
 
 
 ## Arduino-Marquee-light
