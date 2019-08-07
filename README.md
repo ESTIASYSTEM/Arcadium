@@ -9,7 +9,9 @@ Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier corres
 [Utilisation de LaunchBox BigBox](https://www.launchbox-app.com/big-box)
 
 ## Arduino-Coin-Acceptor
-Code pour la carte Arduino gérant le monnayeur.
+Code pour la carte Arduino gérant le monnayeur. Le monnayeur envoie à l'Arduino via une connection RS232 la valeur de la pièce inséré (nombre arbitraire). La carte Arduino calcule un ratio en fonction du prix de la partie et renvoie un nombre d'impulsions vers le PC gérant l'émulateur.
+Plus de détails dans les commentaires du code.
+
 Lien utiles:
 - [Interfacing DG600F Coin Acceptor to Arduino](https://bigdanzblog.wordpress.com/2015/01/12/interfacing-dg600f-coin-acceptor-to-arduino/)
 - [arduino-coin-acceptor
@@ -17,16 +19,14 @@ Lien utiles:
 - [DG600F Code examples](https://github.com/vvzen/coin-acceptor)
 - [Make Money With Arduino](https://www.instructables.com/id/Make-Money-with-Arduino/)
 
-TODO
-- faire la VeroBoard et les supports
-- se connecter au bouton du PC
+### TODO
+-  faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
+- faire le circuit proprement avec une VeroBoard et les supports
 
-
-[Sur les boutons de la borne](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
-venir faire passer l'Arduino pour un bouton avec un transistor NPN
-Bouton non appuyé: fil jaune au potentiel 5V (même que rouge)
-Bouton appuyé: fil jaune au potentiel GND
--> fermeture du circuit
+Principe de fonctionnement actuel du bouton monnaie:
+Pour insérer des crédits, il faut actuellement appuyé sur un bouton. Un appui (impulsion) correspond à un crédit.
+- Bouton non appuyé: fil jaune au potentiel 5V (même que rouge)
+- Bouton appuyé: fil jaune au potentiel GND (fil noir) -> fermeture du circuit
 
 
 ### Configuration du monnayeur
@@ -38,7 +38,10 @@ Chaque pièce est associé à un numéro dans le monnayeur
 - C5 : 0,10€    Valeur monnayeur    2
 - C6 : 0,05€    Valeur monnayeur    1
 
-Valeur € = valeur monnayeur x 5
+La carte Arduino calcule un ration avec la valeur suivante
+```c
+Valeur € = valeur monnayeur * 5
+```
 
 
 
@@ -46,6 +49,10 @@ Valeur € = valeur monnayeur x 5
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
 [Réutilisation d'un code d'exemple de ce dépot](https://github.com/Makuna/NeoPixelBus)
 Il faut installer la bibliothéque dans l'IDE Arduino
+
+### TODO
+- Tester le code NeoPixelCyclon pour savoir s'il s'agit du bon (tester sur d'autres LEDs à adressage !!!)
+- Si ce n'est pas le bon, refaire le même à partie de l'exemple de la bibliothéque 
 
 ## Arduino-rear-LED
 Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contient :
