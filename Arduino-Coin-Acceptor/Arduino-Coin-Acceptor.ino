@@ -44,7 +44,7 @@
 #define LED_PIN 13
 #define PIN_PC  2
 
-volatile int coin_value = 0; //1€ = 100 integer
+unsigned int coin_value = 0; //1€ = 100 integer
 unsigned long previous_Millis = 0;
 unsigned long current_Millis;
 bool high_state_sending = false;
