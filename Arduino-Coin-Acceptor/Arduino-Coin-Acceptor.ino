@@ -85,7 +85,7 @@ void loop()
   {
     current_Millis = millis();
 
-    if (current_Millis - previous_Millis >= SENDING_INTERVAL)
+    if (abs(current_Millis - previous_Millis) >= SENDING_INTERVAL)
     {
       Serial.println(high_state_sending);   //to count impulse send
       //if there is some money and state is high, send a falling edge
