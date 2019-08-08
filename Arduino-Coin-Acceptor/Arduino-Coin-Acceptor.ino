@@ -7,12 +7,12 @@
  * 
  * Currency
  * Each coin is associated with a value in coin acceptor
- * C1 : 2€       Valeur monnayeur    40
- * C2 : 1€       Valeur monnayeur    20
- * C3 : 0,50€    Valeur monnayeur    10
- * C4 : 0,20€    Valeur monnayeur    4
- * C5 : 0,10€    Valeur monnayeur    2
- * C6 : 0,05€    Valeur monnayeur    1
+ * C1 : 2€       Value coin acceptor    40
+ * C2 : 1€       Value coin acceptor    20
+ * C3 : 0,50€    Value coin acceptor    10
+ * C4 : 0,20€    Value coin acceptor    4
+ * C5 : 0,10€    Value coin acceptor    2
+ * C6 : 0,05€    Value coin acceptor    1
  * 
  * To avoid problem with software serial (no hardware buffer), the port use is RX to receive data from coin acceptor
  * 
@@ -70,7 +70,7 @@ void loop()
   // any input coming from coin acceptor?
   if (Serial.available())
   {
-    volatile int input_value = Serial.read();
+    unsigned int input_value = Serial.read();
     // read input, which is a 1 byte integer
     // coin acceptor send two value, whose one is allways 170
     if (input_value < 170)
