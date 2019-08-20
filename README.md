@@ -23,7 +23,7 @@ Lien utiles:
 -  faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
 - faire le circuit proprement avec une VeroBoard et les supports
 
-Principe de fonctionnement actuel du bouton monnaie:
+Principe de fonctionnement actuel du bouton monnaie dans la brone:
 Pour insérer des crédits, il faut actuellement appuyé sur un bouton. Un appui (impulsion) correspond à un crédit.
 - Bouton non appuyé: fil jaune au potentiel 5V (même que rouge)
 - Bouton appuyé: fil jaune au potentiel GND (fil noir) -> fermeture du circuit
@@ -38,7 +38,7 @@ Chaque pièce est associé à un numéro dans le monnayeur
 - C5 : 0,10€    Valeur monnayeur    2
 - C6 : 0,05€    Valeur monnayeur    1
 
-La carte Arduino calcule un ration avec la valeur suivante
+La carte Arduino calcule un ratio avec la valeur suivante
 ```c
 Valeur € = valeur monnayeur * 5
 ```
@@ -47,7 +47,7 @@ Valeur € = valeur monnayeur * 5
 
 ## Arduino-Marquee-light
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
-[Réutilisation d'un code d'exemple de ce dépot](https://github.com/Makuna/NeoPixelBus)
+[Réutilisation d'un code d'exemple de ce dépot](https://github.com/Makuna/NeoPixelBus).
 Il faut installer la bibliothéque dans l'IDE Arduino
 
 ### TODO
@@ -60,3 +60,6 @@ Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contien
 - un PWM logiciel pour avoir 3 sorties PWM simultanées sur une carte Nano (contourner la limitation matérielle)
 - une gestion des LEDs en mode RGB
 - une correction du gamma (TODO fonction pouvant être supprimé)
+
+### TODO
+- supprimer la correction gamma
