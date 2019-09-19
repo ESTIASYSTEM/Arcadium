@@ -1,9 +1,13 @@
 # Arcadium
 Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier correspond à un périphérique (par exemple l'Arduino qui gère  les LEDs frontales). Le code doit pouvoir être directement compilable une fois le dépot cloné (le nom du .ino doit être le même que son dossier).
+Le travail restant est indiqué dans les TODOS
+
+## TODO
+- [ ] imprimer et coller les stickers
 
 
-[Lien vers l'article sur la borne](http://estiasystem.estia.fr/archives/2317)
-![Une fine équipe!](borne.jpg)
+
+![La borne d'arcade!](media/arcadium.jpg)
 
 ## Emulateur LaunchBox BigBox
 [Utilisation de LaunchBox BigBox](https://www.launchbox-app.com/big-box)
@@ -20,8 +24,8 @@ Lien utiles:
 - [Make Money With Arduino](https://www.instructables.com/id/Make-Money-with-Arduino/)
 
 ### TODO
--  faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
-- faire le circuit proprement avec une VeroBoard et les supports
+- [ ] faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
+- [ ] faire le circuit proprement avec une VeroBoard et les supports
 
 Principe de fonctionnement actuel du bouton monnaie dans la brone:
 Pour insérer des crédits, il faut actuellement appuyé sur un bouton. Un appui (impulsion) correspond à un crédit.
@@ -51,8 +55,8 @@ Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
 Il faut installer la bibliothéque dans l'IDE Arduino
 
 ### TODO
-- Tester le code NeoPixelCyclon pour savoir s'il s'agit du bon (tester sur d'autres LEDs à adressage !!!)
-- Si ce n'est pas le bon, refaire le même à partie de l'exemple de la bibliothéque 
+- [ ] Tester le code NeoPixelCyclon pour savoir s'il s'agit du bon (tester sur d'autres LEDs à adressage !!!)
+- [ ] Si ce n'est pas le bon, refaire le même à partie de l'exemple de la bibliothéque 
 
 ## Arduino-rear-LED
 Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contient :
@@ -62,4 +66,5 @@ Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contien
 - une correction du gamma (TODO fonction pouvant être supprimé)
 
 ### TODO
-- supprimer la correction gamma
+- [ ] retrouver la version du code qui fait scintiller les leds (fadding effect)
+- [ ] supprimer la correction gamma
