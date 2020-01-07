@@ -2,8 +2,6 @@
 Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier correspond à un périphérique (par exemple l'Arduino qui gère  les LEDs frontales). Le code doit pouvoir être directement compilable une fois le dépot cloné (le nom du .ino doit être le même que son dossier).
 Le travail restant est indiqué dans les TODOS
 
-## TODO
-- [ ] imprimer et coller les stickers
 
 ## TODO
 - [ ] imprimer et coller les stickers
