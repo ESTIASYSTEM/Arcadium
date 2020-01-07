@@ -2,15 +2,17 @@
 Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier correspond à un périphérique (par exemple l'Arduino qui gère  les LEDs frontales). Le code doit pouvoir être directement compilable une fois le dépot cloné (le nom du .ino doit être le même que son dossier).
 Le travail restant est indiqué dans les TODOS
 
+
 ## TODO
 - [ ] imprimer et coller les stickers
-
-
+- [ ] faire un service windows (deamon) ou prendre un soft existant pour  programmer les heures d'activités de la borne
 
 ![La borne d'arcade!](media/arcadium.jpg)
 
+
 ## Emulateur LaunchBox BigBox
 [Utilisation de LaunchBox BigBox](https://www.launchbox-app.com/big-box)
+
 
 ## Arduino-Coin-Acceptor
 Code pour la carte Arduino gérant le monnayeur. Le monnayeur envoie à l'Arduino via une connection RS232 la valeur de la pièce inséré (nombre arbitraire). La carte Arduino calcule un ratio en fonction du prix de la partie et renvoie un nombre d'impulsions vers le PC gérant l'émulateur.
@@ -22,6 +24,7 @@ Lien utiles:
 ](https://github.com/hxlnt/arduino-coin-acceptor)
 - [DG600F Code examples](https://github.com/vvzen/coin-acceptor)
 - [Make Money With Arduino](https://www.instructables.com/id/Make-Money-with-Arduino/)
+
 
 ### TODO
 - [ ] faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
@@ -48,15 +51,16 @@ Valeur € = valeur monnayeur * 5
 ```
 
 
-
 ## Arduino-Marquee-light
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
 [Réutilisation d'un code d'exemple de ce dépot](https://github.com/Makuna/NeoPixelBus).
 Il faut installer la bibliothéque dans l'IDE Arduino
 
+
 ### TODO
 - [ ] Tester le code NeoPixelCyclon pour savoir s'il s'agit du bon (tester sur d'autres LEDs à adressage !!!)
 - [ ] Si ce n'est pas le bon, refaire le même à partie de l'exemple de la bibliothéque 
+
 
 ## Arduino-rear-LED
 Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contient :
