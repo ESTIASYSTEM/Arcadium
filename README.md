@@ -6,6 +6,7 @@ Le travail restant est indiqué dans les TODOS
 ## TODO
 - [ ] imprimer et coller les stickers
 - [ ] faire un service windows (deamon) ou prendre un soft existant pour  programmer les heures d'activités de la borne
+- [ ] faire le monnayeur
 
 ![La borne d'arcade!](media/arcadium.jpg)
 
@@ -30,7 +31,7 @@ Lien utiles:
 - [ ] faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
 - [ ] faire le circuit proprement avec une VeroBoard et les supports
 
-Principe de fonctionnement actuel du bouton monnaie dans la brone:
+Principe de fonctionnement actuel du bouton monnaie dans la borne:
 Pour insérer des crédits, il faut actuellement appuyé sur un bouton. Un appui (impulsion) correspond à un crédit.
 - Bouton non appuyé: fil jaune au potentiel 5V (même que rouge)
 - Bouton appuyé: fil jaune au potentiel GND (fil noir) -> fermeture du circuit

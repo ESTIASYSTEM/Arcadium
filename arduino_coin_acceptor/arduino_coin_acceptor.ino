@@ -17,7 +17,7 @@
  * To avoid problem with software serial (no hardware buffer), the port use is RX to receive data from coin acceptor
  * 
  * Pin map on Arduino Nano:
- * RX: SIGNAL (coin acceptor)                   /!\KEEP MIND TO UNPLUG BEFORE TÉLÉVERSER
+ * RX: SIGNAL (coin acceptor)                   /!\KEEP MIND TO UNPLUG BEFORE FLASHING/ TÉLÉVERSER
  * Vin: 12v
  * Gnd: with coin acceptor and generator
  * 
@@ -38,11 +38,11 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-#define GAME_PRICE 10                         // ratio: € x 100, exemple: one game (impluse) at 0,1€ is GAME_PRICE 10
+#define GAME_PRICE 10                         // ratio: 0.01€ = 1, exemple: one game (impluse) at 0,10€ is GAME_PRICE 10
 #define RATIO_CURRENCY_COIN_ACCEPTOR_SIGNAL 5 // ratio to convert value from coin acceptor in €
 #define SENDING_INTERVAL 250                  //send a signal each intervale
-#define LED_PIN 13
-#define PIN_PC  2
+#define LED_PIN 13                            //for visualisation
+#define PIN_PC  2                             // output to the PC
 
 unsigned int coin_value = 0; //1€ = 100 integer
 unsigned long previous_Millis = 0;
@@ -87,7 +87,7 @@ void loop()
 
     if (abs(current_Millis - previous_Millis) >= SENDING_INTERVAL)
     {
-      Serial.println(high_state_sending);   //to count impulse send
+      //Serial.println(high_state_sending);   //to count impulse send
       //if there is some money and state is high, send a falling edge
 
       if (high_state_sending)
