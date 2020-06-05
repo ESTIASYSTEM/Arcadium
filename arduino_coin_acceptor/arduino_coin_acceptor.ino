@@ -23,8 +23,8 @@
  * 
  * Pin map coin acceptor
  * GND
- * SIGNAL (to Arduino)
- * DC12V
+ * SIGNAL (to Arduino): RX
+ * DC12V: Vin
  * PIN_PC: 2 to connect with the PC via button
  * 
  * Coin acceptor Switch configuration :
