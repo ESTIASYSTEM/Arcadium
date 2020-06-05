@@ -6,8 +6,10 @@ Le travail restant est indiqué dans les TODOS. Si vous avez des questions, n'h�
 ## TODO
 Par ordre de priorité décroissant
 - [X] faire la structure
+
 - [ ] faire le monnayeur [TODO coin acceptor](###TODO-Arduino-Coin-Acceptor)
 - [ ] imprimer et coller les stickers décorations sur les côtés (cf drive ESTIA SYSTEM)
+
 - [ ] gérer les périodes d'activités de la borne (mettre en veille, démarrer). idée: faire un bash executé au démarrage ou prendre un soft existant pour programmer les heures.
 - [ ] [TODO Marque light](###TODO-Arduino-Marquee-light) pour résoudre cette [issue](https://github.com/ESTIASYSTEM/Arcadium/issues/1)
 - [ ] [TODO rear lead](###TODO-Arduino-rear-LED)
