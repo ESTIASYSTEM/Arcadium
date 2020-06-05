@@ -22,7 +22,7 @@ Par ordre de priorité décroissant
 ## Arduino-Coin-Acceptor
 ### TODO Arduino-Coin-Acceptor
 - [ ] faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
-- [ ] faire le circuit proprement avec une VeroBoard et les supports, cf brouillon schéma électronique
+- [ ] faire le circuit proprement avec une VeroBoard et les supports, [cf brouillon schéma électronique](arduino_coin_acceptor\coin_acceptor_schematic\coin_acceptor_schematic.pdf)
 
 Principe de fonctionnement actuel du bouton monnaie dans la borne:
 Pour insérer des crédits, il faut actuellement appuyé sur un bouton. Un appui (impulsion) correspond à un crédit.
