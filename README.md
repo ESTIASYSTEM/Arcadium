@@ -1,11 +1,16 @@
 # Arcadium
-Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier correspond à un périphérique (par exemple l'Arduino qui gère  les LEDs frontales). Le code doit pouvoir être directement compilable une fois le dépot cloné (le nom du .ino doit être le même que son dossier).
-Le travail restant est indiqué dans les TODOS
+Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier correspond à un périphérique (par exemple l'Arduino qui gère  les LEDs frontales). Le code doit pouvoir être directement téléversable (même nom de fichier .ino et de dossier). Les autres documents concernant le projet (CAO, décorations latérales, factures) sont sur le drive (Adhérents ESTIA SYSTEM\Projets\Borne d'arcade.)
 
+Le travail restant est indiqué dans les TODOS. Si vous avez des questions, n'hésitez pas à demander aux anciens [contributeurs](#contributeurs) et ouvrir des [issues](https://github.com/ESTIASYSTEM/Arcadium/issues) :wink:.
 
 ## TODO
-- [ ] imprimer et coller les stickers
-- [ ] faire un service windows (deamon) ou prendre un soft existant pour  programmer les heures d'activités de la borne
+Par ordre de priorité décroissant
+- [X] faire la structure
+- [ ] faire le monnayeur[TODO coin acceptor](###TODO-Arduino-Coin-Acceptor)
+- [ ] imprimer et coller les stickers décorations sur les côtés (cf drive)
+- [ ] gérer les périodes d'activités de la borne (mettre en veille, démarrer). idée: faire un bash executé au démarrage ou prendre un soft existant pour programmer les heures.
+- [ ] [TODO Marque light](###TODO-Arduino-Marquee-light) pour résoudre cette [issue](https://github.com/ESTIASYSTEM/Arcadium/issues/1)
+- [ ] [TODO rear lead](###TODO-Arduino-rear-LED)
 
 ![La borne d'arcade!](media/arcadium.jpg)
 
@@ -15,7 +20,15 @@ Le travail restant est indiqué dans les TODOS
 
 
 ## Arduino-Coin-Acceptor
-Code pour la carte Arduino gérant le monnayeur. Le monnayeur envoie à l'Arduino via une connection RS232 la valeur de la pièce inséré (nombre arbitraire). La carte Arduino calcule un ratio en fonction du prix de la partie et renvoie un nombre d'impulsions vers le PC gérant l'émulateur.
+### TODO Arduino-Coin-Acceptor
+- [ ] faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
+- [ ] faire le circuit proprement avec une VeroBoard et les supports, [cf brouillon schéma électronique](arduino_coin_acceptor\coin_acceptor_schematic\coin_acceptor_schematic.pdf)
+
+Principe de fonctionnement actuel du bouton monnaie dans la borne:
+Pour insérer des crédits, il faut actuellement appuyé sur un bouton. Un appui (impulsion) correspond à un crédit.
+- Bouton non appuyé: fil jaune au potentiel 5V (même que rouge)
+- Bouton appuyé: fil jaune au potentiel GND (fil noir) -> fermeture du circuit
+Code pour la carte Arduino gérant le monnayeur. Le monnayeur envoie à l'Arduino via une connection RS232 la valeur de la pièce inséré (nombre arbitraire). La carte Arduino calcule un ratio en fonction du prix de la partie et renvoie un nombre d'impulsions vers le PC gérant l'émulateur. La connection se fait sur la carte Reyann via les connecteurs JST.
 Plus de détails dans les commentaires du code.
 
 Lien utiles:
@@ -24,17 +37,6 @@ Lien utiles:
 ](https://github.com/hxlnt/arduino-coin-acceptor)
 - [DG600F Code examples](https://github.com/vvzen/coin-acceptor)
 - [Make Money With Arduino](https://www.instructables.com/id/Make-Money-with-Arduino/)
-
-
-### TODO
-- [ ] faire passer l'Arduino pour un bouton avec un transistor NPN, puis faire une connection entre la Arduino et la carte Reyann Easyget [ça ressemble à ça où intervenir](https://www.amazon.fr/Reyann-LED-Illuminated-DIY-poussoirs/dp/B01G9UOJOC)
-- [ ] faire le circuit proprement avec une VeroBoard et les supports
-
-Principe de fonctionnement actuel du bouton monnaie dans la brone:
-Pour insérer des crédits, il faut actuellement appuyé sur un bouton. Un appui (impulsion) correspond à un crédit.
-- Bouton non appuyé: fil jaune au potentiel 5V (même que rouge)
-- Bouton appuyé: fil jaune au potentiel GND (fil noir) -> fermeture du circuit
-
 
 ### Configuration du monnayeur
 Chaque pièce est associé à un numéro dans le monnayeur
@@ -50,24 +52,30 @@ La carte Arduino calcule un ratio avec la valeur suivante
 Valeur € = valeur monnayeur * 5
 ```
 
-
 ## Arduino-Marquee-light
+### TODO Arduino-Marquee-light
+- [ ] Tester le code NeoPixelCyclon pour savoir s'il s'agit du bon (tester sur une autre carte Arduino pour ne pas perdre le programme actuel !!!)
+- [ ] Si ce n'est pas le bon, refaire le même à partie de l'exemple de la bibliothèque 
+
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
 [Réutilisation d'un code d'exemple de ce dépot](https://github.com/Makuna/NeoPixelBus).
-Il faut installer la bibliothéque dans l'IDE Arduino
-
-
-### TODO
-- [ ] Tester le code NeoPixelCyclon pour savoir s'il s'agit du bon (tester sur d'autres LEDs à adressage !!!)
-- [ ] Si ce n'est pas le bon, refaire le même à partie de l'exemple de la bibliothéque 
+Il faut installer la bibliothèque dans l'IDE Arduino
 
 ## Arduino-rear-LED
+### TODO Arduino-rear-LED
+- [ ] retrouver la version du code qui fait scintiller les leds (fadding effect)
+- [ ] supprimer la correction gamma
+
 Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contient :
 
 - un PWM logiciel pour avoir 3 sorties PWM simultanées sur une carte Nano (contourner la limitation matérielle)
 - une gestion des LEDs en mode RGB
-- une correction du gamma (TODO fonction pouvant être supprimé)
+- une correction du gamma (fonction pouvant être supprimé)
 
-### TODO
-- [ ] retrouver la version du code qui fait scintiller les leds (fadding effect)
-- [ ] supprimer la correction gamma
+# Contributeurs
+- [Raphaël OLLANDO](https://www.linkedin.com/in/ollando-raph/): conception, fabrication (CAO, électronique, sélection des logiciels), gestion de projet
+- [Robin MOUNEU)[https://www.linkedin.com/in/robin-mouneu-87345915a/]: conception et fabrication mécanique
+- [Flavien DUMAS)[https://www.linkedin.com/in/flavien-dumas/]: conception informatique, configuration Windows et LaunchBox BigBox
+- [Pierre JESSEL)[https://www.linkedin.com/in/pierre-jessel-0276b4151/]: conception électronique, Marquee light
+- [Sylvain GUTIERREZ)[https://www.linkedin.com/in/sylvain-gutierrez-estia/]: design Inkscape, décorations latérales
+- [Adrien GAUCHÉ)[https://www.linkedin.com/in/adrien-gauche/]: monnayeur, rear LED, documentation 
