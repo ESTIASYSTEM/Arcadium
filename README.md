@@ -1,13 +1,15 @@
 # Arcadium
 Dépôt  pour tous les codes concernant la borne d'arcade. Chaque dossier correspond à un périphérique (par exemple l'Arduino qui gère  les LEDs frontales). Le code doit pouvoir être directement téléversable (même nom de fichier .ino et de dossier). Les autres documents concernant le projet (CAO, décorations latérales, factures) sont sur le drive (Adhérents ESTIA SYSTEM\Projets\Borne d'arcade.)
 
-Le travail restant est indiqué dans les TODOS. Si vous avez des questions, n'hésitez pas à demander aux anciens [contributeurs](#contributeurs) et ouvrir des [issues](https://github.com/ESTIASYSTEM/Arcadium/issues) :wink:.
+Le travail restant est indiqué dans les TODOS. Si vous avez des questions, n'hésitez pas à demander aux anciens [contributeurs](#contributeurs) via les [issues](https://github.com/ESTIASYSTEM/Arcadium/issues) :wink:.
 
 ## TODO
 Par ordre de priorité décroissant
 - [X] faire la structure
-- [ ] faire le monnayeur[TODO coin acceptor](###TODO-Arduino-Coin-Acceptor)
-- [ ] imprimer et coller les stickers décorations sur les côtés (cf drive)
+
+- [ ] faire le monnayeur [TODO coin acceptor](###TODO-Arduino-Coin-Acceptor)
+- [ ] imprimer et coller les stickers décorations sur les côtés (cf drive ESTIA SYSTEM)
+
 - [ ] gérer les périodes d'activités de la borne (mettre en veille, démarrer). idée: faire un bash executé au démarrage ou prendre un soft existant pour programmer les heures.
 - [ ] [TODO Marque light](###TODO-Arduino-Marquee-light) pour résoudre cette [issue](https://github.com/ESTIASYSTEM/Arcadium/issues/1)
 - [ ] [TODO rear lead](###TODO-Arduino-rear-LED)
@@ -58,6 +60,7 @@ Valeur € = valeur monnayeur * 5
 - [ ] Si ce n'est pas le bon, refaire le même à partie de l'exemple de la bibliothèque 
 
 Code pour la carte Arduino gérant les LEDs à adressage  de la face avant.
+
 [Réutilisation d'un code d'exemple de ce dépot](https://github.com/Makuna/NeoPixelBus).
 Il faut installer la bibliothèque dans l'IDE Arduino
 
@@ -74,8 +77,8 @@ Code pour la carte Arduino Nano gérant les LEDs arrières. Ce programme contien
 
 # Contributeurs
 - [Raphaël OLLANDO](https://www.linkedin.com/in/ollando-raph/): conception, fabrication (CAO, électronique, sélection des logiciels), gestion de projet
-- [Robin MOUNEU)[https://www.linkedin.com/in/robin-mouneu-87345915a/]: conception et fabrication mécanique
-- [Flavien DUMAS)[https://www.linkedin.com/in/flavien-dumas/]: conception informatique, configuration Windows et LaunchBox BigBox
-- [Pierre JESSEL)[https://www.linkedin.com/in/pierre-jessel-0276b4151/]: conception électronique, Marquee light
-- [Sylvain GUTIERREZ)[https://www.linkedin.com/in/sylvain-gutierrez-estia/]: design Inkscape, décorations latérales
-- [Adrien GAUCHÉ)[https://www.linkedin.com/in/adrien-gauche/]: monnayeur, rear LED, documentation 
+- [Robin MOUNEU](https://www.linkedin.com/in/robin-mouneu-87345915a/): conception et fabrication mécanique
+- [Flavien DUMAS](https://www.linkedin.com/in/flavien-dumas/): conception informatique, configuration Windows et LaunchBox BigBox
+- [Pierre JESSEL](https://www.linkedin.com/in/pierre-jessel-0276b4151/): conception électronique, Marquee light
+- [Sylvain GUTIERREZ](https://www.linkedin.com/in/sylvain-gutierrez-estia/): design Inkscape, décorations latérales
+- [Adrien GAUCHÉ](https://www.linkedin.com/in/adrien-gauche/): monnayeur, rear LED, documentation 
